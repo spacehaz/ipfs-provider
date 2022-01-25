@@ -13,13 +13,19 @@ const getAuth = async () => {
   }
 }
 
+
 const addJSON = async (req, res) => {
   if (!req.body) {
     return res.status(400).send({ message: "not valid data provided" })
   }
   const isAuthed = await getAuth()
   if (isAuthed) {
-    const result = await pinata.pinJSONToIPFS(req.body)
+    const options = {
+      pinataOptions: {
+        cidVersion: 0,
+      },
+    };
+    const result = await pinata.pinJSONToIPFS(req.body, options)
     res.send(result)
   } else {
     res.status(403).send({ message: 'forbidden' })
