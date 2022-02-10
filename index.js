@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const router = require('./routes')
 const cors = require('cors');
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://vibrant-bardeen-55e861.netlify.app']
+    origin: ['http://localhost:3000', 'https://vibrant-bardeen-55e861.netlify.app', 'https://competent-hypatia-afb2b0.netlify.app']
 }));
 
 app.use(bodyParser.json())
